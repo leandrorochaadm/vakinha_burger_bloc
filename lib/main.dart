@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app/vakinha_burger_app.dart';
+
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Vakinha Burger',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(),
-    );
-  }
+  runApp(const VakinhaBurgerAPP());
 }
