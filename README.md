@@ -1,4 +1,4 @@
-# Vakinha Burger - 
+# Vakinha Burger 
 ### App Entrega de comida usando Flutter Bloc 
 
 
