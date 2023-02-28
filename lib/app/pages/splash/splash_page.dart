@@ -26,6 +26,13 @@ class SplashPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Splash'),
         ),
+        body: Column(children: [
+          Container(),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Teste'),
+          )
+        ]),
       ),
     );
   }
