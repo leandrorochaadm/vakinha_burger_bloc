@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger/app/core/ui/theme/theme_config.dart';
 import 'package:vakinha_burger/app/pages/splash/splash_page.dart';
 
 class VakinhaBurgerAPP extends StatelessWidget {
@@ -9,7 +10,7 @@ class VakinhaBurgerAPP extends StatelessWidget {
     return MaterialApp(
       title: 'Vakinha Burger',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeConfig.theme,
       initialRoute: '/',
       routes: {
         '/': (context) => SplashPage(),
