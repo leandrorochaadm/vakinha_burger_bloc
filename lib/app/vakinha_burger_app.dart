@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vakinha_burger/app/core/core.dart';
-import 'package:vakinha_burger/app/core/ui/theme/theme_config.dart';
-import 'package:vakinha_burger/app/pages/splash/splash_page.dart';
+import 'package:vakinha_burger/app/pages/pages.dart';
 
 class VakinhaBurgerAPP extends StatelessWidget {
   const VakinhaBurgerAPP({super.key});
@@ -16,6 +15,7 @@ class VakinhaBurgerAPP extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => SplashPage(),
+          '/home': (context) => HomeRouter.page,
         },
       ),
     );

@@ -28,12 +28,12 @@ class SplashPage extends StatelessWidget {
                 children: [
                   SizedBox(height: context.percentHeight(.3)),
                   Image.asset('assets/images/logo.png'),
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   DeliveryButton(
                     label: 'ACESSAR',
                     width: context.percentWidth(0.6),
                     height: 35,
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/home'),
                   ),
                 ],
               ),
