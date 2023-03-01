@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vakinha_burger/app/core/config/env/env.dart';
 import 'package:vakinha_burger/app/core/ui/helper/size_extesions.dart';
-import 'package:vakinha_burger/app/core/ui/widgets/widgets.dart';
+
+import '../../core/ui/widgets/widgets.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -9,42 +9,38 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Splash'),
-      ),
-      body: Column(children: [
-        Container(),
-        ElevatedButton(onPressed: () {}, child: Text('Teste')),
-        TextFormField(decoration: InputDecoration(labelText: 'text')),
-        DeliveryButton(
-          label: Env.i['backend_base_url'] ?? '',
-          width: 200,
-          height: 80,
-          onPressed: () {},
-        ),
-        Row(
+      body: ColoredBox(
+        color: const Color(0XFF140E0E),
+        child: Stack(
           children: [
-            SizedBox(
-              width: context.percentWidth(.45),
-              height: context.percentHeight(.1),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text('Azul'),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SizedBox(
+                width: context.screenWidth,
+                child: Image.asset(
+                  'assets/images/lanche.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            SizedBox(
-              width: context.percentWidth(.55),
-              height: context.percentHeight(.05),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text('Vermelho'),
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(height: context.percentHeight(.3)),
+                  Image.asset('assets/images/logo.png'),
+                  SizedBox(height: 80),
+                  DeliveryButton(
+                    label: 'ACESSAR',
+                    width: context.percentWidth(0.6),
+                    height: 35,
+                    onPressed: () {},
+                  ),
+                ],
               ),
-            ),
+            )
           ],
-        )
-      ]),
+        ),
+      ),
     );
   }
 }
