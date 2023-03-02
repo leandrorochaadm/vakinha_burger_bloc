@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:vakinha_burger/app/core/ui/ui.dart';
 import 'package:vakinha_burger/app/models/product_model.dart';
 
 import '../../core/ui/widgets/widgets.dart';
 import 'widget/widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with Loader {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DeliveryAppBar(),
+      floatingActionButton: FloatingActionButton(onPressed: () async {
+        showLoader();
+        await Future.delayed(Duration(seconds: 2));
+        hideLoader();
+      }),
       body: Column(
         children: [
           Expanded(

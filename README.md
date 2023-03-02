@@ -8,6 +8,7 @@
 - dio: [link](https://pub.dev/packages/dio)
 - provider: [link](https://pub.dev/packages/provider)
 - intl: [link](https://pub.dev/packages/intl)
+- loading_animation_widget: [link](https://pub.dev/packages/loading_animation_widget)
 
 ### Demonstração visual da tela do app
 
