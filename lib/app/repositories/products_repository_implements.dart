@@ -16,7 +16,9 @@ class ProductRepositoryImpl implements ProductsRepository {
   Future<List<ProductModel>> findAllProducts() async {
     try {
       final result = await dio.unauth().get('/products');
-      return result.data.map((p) => ProductModel.fromJson(p)).toList();
+      return result.data
+          .map<ProductModel>((p) => ProductModel.fromJson(p))
+          .toList();
     } on DioError catch (e, s) {
       log("Erro ao buscar produtos", error: e, stackTrace: s);
       throw RepositoryException(message: "Erro ao buscar produtos");

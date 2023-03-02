@@ -10,6 +10,9 @@
 - intl: [link](https://pub.dev/packages/intl)
 - loading animation widget: [link](https://pub.dev/packages/loading_animation_widget)
 - top snackbar flutter: [link](https://pub.dev/packages/top_snackbar_flutter)
+- bloc: [link](https://pub.dev/packages/bloc)
+- flutter bloc: [link](https://pub.dev/packages/flutter_bloc)
+- equatable: [link](https://pub.dev/packages/equatable)
 
 ### Demonstração visual da tela do app
 

@@ -16,11 +16,11 @@ class ProductModel {
     required this.imagePath,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-        name: json['name'],
-        description: json['description'],
-        price: json['price'],
-        imagePath: json['image_path'],
+  factory ProductModel.fromJson(dynamic json) => ProductModel(
+        name: json['name'] ?? '',
+        description: json['description'] ?? '',
+        price: json['price'] ?? 0,
+        imagePath: json['image'] ?? '',
       );
 
   ProductModel copyWith({
