@@ -13,4 +13,5 @@
 
 ### Demonstração visual da tela do app
 
-![App UI](prints/01.png)
+![splash](prints/01.png)
+![products](prints/02.png)

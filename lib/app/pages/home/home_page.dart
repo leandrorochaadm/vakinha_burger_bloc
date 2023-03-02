@@ -17,16 +17,6 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DeliveryAppBar(),
-      floatingActionButton: FloatingActionButton(onPressed: () async {
-        // showLoader();
-        // await Future.delayed(Duration(seconds: 2));
-        // hideLoader();
-        showError('Erro teste do dialog');
-        await Future.delayed(Duration(seconds: 2));
-        showInfo('Info teste do dialog');
-        await Future.delayed(Duration(seconds: 2));
-        showSuccess('Sucesso teste do dialog');
-      }),
       body: Column(
         children: [
           Expanded(
