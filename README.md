@@ -4,11 +4,12 @@
 
 **Packages we are using:**
 
-- flutter_dotenv: [link](https://pub.dev/packages/flutter_dotenv)
+- flutter dotenv: [link](https://pub.dev/packages/flutter_dotenv)
 - dio: [link](https://pub.dev/packages/dio)
 - provider: [link](https://pub.dev/packages/provider)
 - intl: [link](https://pub.dev/packages/intl)
-- loading_animation_widget: [link](https://pub.dev/packages/loading_animation_widget)
+- loading animation widget: [link](https://pub.dev/packages/loading_animation_widget)
+- top snackbar flutter: [link](https://pub.dev/packages/top_snackbar_flutter)
 
 ### Demonstração visual da tela do app
 

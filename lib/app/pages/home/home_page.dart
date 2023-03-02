@@ -12,15 +12,20 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with Loader {
+class _HomePageState extends State<HomePage> with Loader, Messages {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DeliveryAppBar(),
       floatingActionButton: FloatingActionButton(onPressed: () async {
-        showLoader();
+        // showLoader();
+        // await Future.delayed(Duration(seconds: 2));
+        // hideLoader();
+        showError('Erro teste do dialog');
         await Future.delayed(Duration(seconds: 2));
-        hideLoader();
+        showInfo('Info teste do dialog');
+        await Future.delayed(Duration(seconds: 2));
+        showSuccess('Sucesso teste do dialog');
       }),
       body: Column(
         children: [
