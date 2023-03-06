@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:vakinha_burger/app/core/ui/styles/colors_app.dart';
-import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
+
+import '../styles/colors_app.dart';
+import '../styles/text_styles.dart';
 
 class DeliveryIncrementDecrementButton extends StatelessWidget {
-  const DeliveryIncrementDecrementButton({Key? key}) : super(key: key);
+  final int amount;
+  final VoidCallback incrementTap;
+  final VoidCallback decrementTap;
+
+  const DeliveryIncrementDecrementButton({
+    super.key,
+    required this.amount,
+    required this.incrementTap,
+    required this.decrementTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,30 +25,36 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              '-',
-              style: context.textStyles.textMedium.copyWith(
-                color: Colors.grey,
-                fontSize: 22,
+          InkWell(
+            onTap: decrementTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                '-',
+                style: context.textStyles.textMedium.copyWith(
+                  color: Colors.grey,
+                  fontSize: 22,
+                ),
               ),
             ),
           ),
           Text(
-            '1',
+            amount.toString(),
             style: context.textStyles.textRegular.copyWith(
               fontSize: 17,
               color: context.colors.secondary,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
-              '+',
-              style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
-                fontSize: 22,
+          InkWell(
+            onTap: incrementTap,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                '+',
+                style: context.textStyles.textMedium.copyWith(
+                  color: context.colors.secondary,
+                  fontSize: 22,
+                ),
               ),
             ),
           ),
