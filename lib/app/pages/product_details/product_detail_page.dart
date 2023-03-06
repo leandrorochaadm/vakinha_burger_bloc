@@ -1,18 +1,25 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vakinha_burger/app/core/core.dart';
+import 'package:vakinha_burger/app/core/extensions/formatter_extension.dart';
 import 'package:vakinha_burger/app/core/ui/styles/styles.dart';
+import 'package:vakinha_burger/app/models/models.dart';
+import 'package:vakinha_burger/app/pages/product_details/product_detail_controller.dart';
 
 import '../../core/ui/widgets/widgets.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  const ProductDetailPage({Key? key}) : super(key: key);
+  final ProductModel product;
+
+  const ProductDetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
 }
 
-class _ProductDetailPageState extends State<ProductDetailPage> {
+class _ProductDetailPageState
+    extends BaseState<ProductDetailPage, ProductDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,26 +30,24 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           Container(
             width: context.screenWidth,
             height: context.percentHeight(.4),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(
-                      "https://www.anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-1682-52acab79d88efd805e6a341697e6aecb.jpg"),
+                  image: NetworkImage(widget.product.imagePath),
                   fit: BoxFit.cover),
             ),
           ),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Text('Calabresa',
+            child: Text(widget.product.name,
                 style: context.textStyles.textExtraBold.copyWith(fontSize: 22)),
           ),
           const SizedBox(height: 10),
-          const Expanded(
+          Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
-                child: Text(
-                    'Lanche acompanha pão, calabresa, vinagrete, queijo e maionese'),
+                child: Text(widget.product.description),
               ),
             ),
           ),
@@ -50,47 +55,50 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           Row(
             children: [
               Container(
-                  width: context.percentWidth(0.5),
-                  height: 68,
-                  padding: const EdgeInsets.all(8.0),
-                  child: DeliveryIncrementDecrementButton(
-                    decrementTap: () {
-                      print('decrement');
-                    },
-                    incrementTap: () {
-                      print('increment');
-                    },
-                    amount: 1,
-                  )),
+                width: context.percentWidth(0.5),
+                height: 68,
+                padding: const EdgeInsets.all(8.0),
+                child: BlocBuilder<ProductDetailController, int>(
+                    builder: (context, amount) {
+                  return DeliveryIncrementDecrementButton(
+                    decrementTap: () => controller.decrement(),
+                    incrementTap: () => controller.increment(),
+                    amount: amount,
+                  );
+                }),
+              ),
               Container(
                 width: context.percentWidth(.5),
                 height: 68,
-                padding: EdgeInsets.all(8),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Adicionar',
-                        style: context.textStyles.textExtraBold
-                            .copyWith(fontSize: 13),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: AutoSizeText(
-                          r'R$ 60,99',
-                          maxFontSize: 13,
-                          minFontSize: 5,
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
+                padding: const EdgeInsets.all(8),
+                child: BlocBuilder<ProductDetailController, int>(
+                    builder: (context, amount) {
+                  return ElevatedButton(
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Adicionar',
                           style: context.textStyles.textExtraBold
                               .copyWith(fontSize: 13),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: AutoSizeText(
+                            (widget.product.price * amount).currencyPTBR,
+                            maxFontSize: 13,
+                            minFontSize: 5,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            style: context.textStyles.textExtraBold
+                                .copyWith(fontSize: 13),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
               ),
             ],
           )
