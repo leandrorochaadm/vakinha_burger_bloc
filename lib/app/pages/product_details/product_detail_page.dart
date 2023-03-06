@@ -44,9 +44,11 @@ class ProductDetailPage extends StatelessWidget {
           const Divider(),
           Row(
             children: [
-              SizedBox(
+              Container(
                   width: context.percentWidth(0.5),
-                  child: Text('botão incremente')),
+                  height: 68,
+                  padding: const EdgeInsets.all(8.0),
+                  child: const DeliveryIncrementDecrementButton()),
               Container(
                 width: context.percentWidth(.5),
                 height: 68,
