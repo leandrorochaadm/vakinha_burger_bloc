@@ -13,6 +13,9 @@
 - bloc: [link](https://pub.dev/packages/bloc)
 - flutter bloc: [link](https://pub.dev/packages/flutter_bloc)
 - equatable: [link](https://pub.dev/packages/equatable)
+- match: [link](https://pub.dev/packages/match)
+- match generator: [link](https://pub.dev/packages/match_generator)
+- build runner: [link](https://pub.dev/packages/build_runner)
 
 ### Demonstração visual da tela do app
 
