@@ -9,7 +9,7 @@ class ProductDetailsRouter {
   static Widget get page => MultiProvider(
         providers: [
           Provider(
-            create: (context) => Object(),
+            create: (context) => ProductDetailController(),
           )
         ],
         child: const ProductDetailPage(),
