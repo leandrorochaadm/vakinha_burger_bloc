@@ -31,6 +31,10 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
           listener: (context, state) => state.status.matchAny(
                 any: () => hideLoader(),
                 loading: () => showLoader(),
+                error: () {
+                  hideLoader();
+                  showError(state.errorMessage ?? 'Erro não informado');
+                },
               ),
           buildWhen: (previous, current) => current.status.matchAny(
                 any: () => false,
