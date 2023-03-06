@@ -16,7 +16,7 @@ class VakinhaBurgerAPP extends StatelessWidget {
         routes: {
           '/': (context) => const SplashPage(),
           '/home': (context) => HomeRouter.page,
-          '/productDetails': (context) => ProductDetailsRouter.page,
+          '/productDetail': (context) => ProductDetailsRouter.page,
         },
       ),
     );

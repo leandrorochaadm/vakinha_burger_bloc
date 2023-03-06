@@ -16,6 +16,7 @@
 - match: [link](https://pub.dev/packages/match)
 - match generator: [link](https://pub.dev/packages/match_generator)
 - build runner: [link](https://pub.dev/packages/build_runner)
+- auto size text: [link](https://pub.dev/packages/auto_size_text)
 
 ### Demonstração visual da tela do app
 
