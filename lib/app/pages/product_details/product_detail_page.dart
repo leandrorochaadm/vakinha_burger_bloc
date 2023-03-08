@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vakinha_burger/app/core/core.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extension.dart';
 import 'package:vakinha_burger/app/core/ui/styles/styles.dart';
+import 'package:vakinha_burger/app/dto/dto.dart';
 import 'package:vakinha_burger/app/models/models.dart';
 import 'package:vakinha_burger/app/pages/product_details/product_detail_controller.dart';
 
@@ -11,8 +12,13 @@ import '../../core/ui/widgets/widgets.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final ProductModel product;
+  final OrderProductDto? orderProduct;
 
-  const ProductDetailPage({Key? key, required this.product}) : super(key: key);
+  const ProductDetailPage({
+    Key? key,
+    required this.product,
+    this.orderProduct,
+  }) : super(key: key);
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
@@ -20,6 +26,13 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState
     extends BaseState<ProductDetailPage, ProductDetailController> {
+  @override
+  void initState() {
+    super.initState();
+    final amount = widget.orderProduct?.amount ?? 1;
+    controller.initial(amount, widget.orderProduct != null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +87,12 @@ class _ProductDetailPageState
                 child: BlocBuilder<ProductDetailController, int>(
                     builder: (context, amount) {
                   return ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pop(
+                        context,
+                        OrderProductDto(
+                          product: widget.product,
+                          amount: amount,
+                        )),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
