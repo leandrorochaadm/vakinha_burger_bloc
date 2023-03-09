@@ -18,6 +18,7 @@
 - build runner: [link](https://pub.dev/packages/build_runner)
 - auto size text: [link](https://pub.dev/packages/auto_size_text)
 - shared preferences: [link](https://pub.dev/packages/shared_preferences)
+- validatorless: [link](https://pub.dev/packages/validatorless)
 
 ### Demonstração visual da tela do app
 
