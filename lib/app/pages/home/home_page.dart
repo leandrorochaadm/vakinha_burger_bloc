@@ -55,7 +55,10 @@ class _HomePageState extends BaseState<HomePage, HomeController>
                       );
                     },
                   ),
-                )
+                ),
+                Visibility(
+                    visible: state.shoppingBag.isNotEmpty,
+                    child: ShoppingBagWidget(bag: state.shoppingBag))
               ],
             );
           }),
