@@ -36,7 +36,8 @@ class LoginPage extends StatelessWidget {
                     child: DeliveryButton(
                       label: 'ENTRAR',
                       width: double.infinity,
-                      onPressed: () {},
+                      onPressed: () =>
+                          Navigator.pushNamed(context, '/auth/register'),
                     ),
                   )
                 ],
