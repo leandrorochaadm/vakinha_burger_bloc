@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vakinha_burger/app/core/core.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extension.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
@@ -33,7 +34,7 @@ class ShoppingBagWidget extends StatelessWidget {
         ),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () => _goOrder(context),
         child: Stack(
           children: [
             const Align(
@@ -57,5 +58,15 @@ class ShoppingBagWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _goOrder(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+    if (!sp.containsKey('access_token')) {
+      //envio pra o login
+      final loginResult = navigator.pushNamed('/auth/login');
+    }
+    // envio pra o order
   }
 }
