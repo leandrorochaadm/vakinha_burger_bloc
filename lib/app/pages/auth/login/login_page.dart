@@ -55,10 +55,14 @@ class LoginPage extends StatelessWidget {
                       children: [
                         Text('Não possui uma conta ',
                             style: context.textStyles.textBold),
-                        Text(
-                          'Cadastra-se',
-                          style: context.textStyles.textBold
-                              .copyWith(color: Colors.blue),
+                        InkWell(
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/auth/register'),
+                          child: Text(
+                            'Cadastra-se',
+                            style: context.textStyles.textBold
+                                .copyWith(color: Colors.blue),
+                          ),
                         )
                       ]),
                 ),
