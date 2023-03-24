@@ -19,7 +19,7 @@ class AuthRepositoryImpl implements AuthRepository {
         'password': password,
       });
 
-      return AuthModel.fromJson(result);
+      return AuthModel.fromJson(result.data);
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {
         log('Permissão negada', error: e, stackTrace: s);
