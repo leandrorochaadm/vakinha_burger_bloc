@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_app_bar.dart';
+import 'package:vakinha_burger/app/core/ui/widgets/delivery_button.dart';
 import 'package:vakinha_burger/app/dto/dto.dart';
 import 'package:vakinha_burger/app/models/models.dart';
 import 'package:validatorless/validatorless.dart';
@@ -33,20 +34,22 @@ class OrderPage extends StatelessWidget {
             ),
           ),
           SliverList(
-              delegate:
-                  SliverChildBuilderDelegate(childCount: 2, (context, index) {
-            return Column(
-              children: [
-                OrderProductTile(
-                    index: index,
-                    orderProduct: OrderProductDto(
-                      amount: 10,
-                      product: ProductModel.fromJson({}),
-                    )),
-                const Divider(color: Colors.grey),
-              ],
-            );
-          })),
+              delegate: SliverChildBuilderDelegate(
+            childCount: 1,
+            (context, index) {
+              return Column(
+                children: [
+                  OrderProductTile(
+                      index: index,
+                      orderProduct: OrderProductDto(
+                        amount: 10,
+                        product: ProductModel.fromJson({}),
+                      )),
+                  const Divider(color: Colors.grey),
+                ],
+              );
+            },
+          )),
           SliverToBoxAdapter(
             child: Column(
               children: [
@@ -82,7 +85,25 @@ class OrderPage extends StatelessWidget {
                   hintText: 'Digite o CPF',
                 ),
                 const SizedBox(height: 10),
-                PaymentTypesField(),
+                const PaymentTypesField(),
+              ],
+            ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Divider(color: Colors.grey),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: DeliveryButton(
+                    width: double.infinity,
+                    height: 48,
+                    label: 'FINALIZAR',
+                    onPressed: () {},
+                  ),
+                )
               ],
             ),
           )
