@@ -3,7 +3,9 @@ import 'package:vakinha_burger/app/core/ui/styles/text_styles.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_app_bar.dart';
 import 'package:vakinha_burger/app/dto/dto.dart';
 import 'package:vakinha_burger/app/models/models.dart';
+import 'package:vakinha_burger/app/pages/order/widget/order_field.dart';
 import 'package:vakinha_burger/app/pages/order/widget/order_product_tile.dart';
+import 'package:validatorless/validatorless.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -66,6 +68,12 @@ class OrderPage extends StatelessWidget {
                       ]),
                 ),
                 Divider(color: Colors.grey),
+                OrderField(
+                  title: 'Endereço de entrega',
+                  controller: TextEditingController(),
+                  validator: Validatorless.required('m'),
+                  hintText: 'Digite um endereço',
+                ),
               ],
             ),
           )
