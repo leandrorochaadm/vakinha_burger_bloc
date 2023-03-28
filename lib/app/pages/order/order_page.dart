@@ -45,6 +45,30 @@ class OrderPage extends StatelessWidget {
               ],
             );
           })),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Total do pedido',
+                          style: context.textStyles.textExtraBold
+                              .copyWith(fontSize: 16),
+                        ),
+                        Text(
+                          r'R$ Valor 200,00',
+                          style: context.textStyles.textExtraBold
+                              .copyWith(fontSize: 16),
+                        ),
+                      ]),
+                ),
+                Divider(color: Colors.grey),
+              ],
+            ),
+          )
         ],
       ),
     );
