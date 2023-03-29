@@ -4,13 +4,20 @@ import 'package:vakinha_burger/app/core/ui/widgets/delivery_app_bar.dart';
 import 'package:vakinha_burger/app/core/ui/widgets/delivery_button.dart';
 import 'package:vakinha_burger/app/dto/dto.dart';
 import 'package:vakinha_burger/app/models/models.dart';
+import 'package:vakinha_burger/app/pages/order/order_controller.dart';
 import 'package:validatorless/validatorless.dart';
 
+import '../../core/core.dart';
 import 'widget/widget.dart';
 
-class OrderPage extends StatelessWidget {
+class OrderPage extends StatefulWidget {
   const OrderPage({Key? key}) : super(key: key);
 
+  @override
+  State<OrderPage> createState() => _OrderPageState();
+}
+
+class _OrderPageState extends BaseState<OrderPage, OrderController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
