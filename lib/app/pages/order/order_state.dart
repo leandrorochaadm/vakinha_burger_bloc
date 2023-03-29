@@ -25,6 +25,18 @@ class OrderState extends Equatable {
         orderProducts = const <OrderProductDto>[];
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [
+        status,
+        orderProducts,
+      ];
+
+  OrderState copyWith({
+    OrderStatus? status,
+    List<OrderProductDto>? orderProducts,
+  }) {
+    return OrderState(
+      status: status ?? this.status,
+      orderProducts: orderProducts ?? this.orderProducts,
+    );
+  }
 }
