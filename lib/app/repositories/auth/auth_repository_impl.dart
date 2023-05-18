@@ -14,12 +14,14 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<AuthModel> login(String email, String password) async {
     try {
-      final result = await dio.unauth().post('/auth', data: {
-        'email': email,
-        'password': password,
-      });
+      // final result = await dio.unauth().post('/auth', data: {
+      //   'email': email,
+      //   'password': password,
+      // });
 
-      return AuthModel.fromJson(result.data);
+      final result = {'access_token': '', 'refresh_token': ''};
+
+      return AuthModel.fromJson(result);
     } on DioError catch (e, s) {
       if (e.response?.statusCode == 403) {
         log('Permissão negada', error: e, stackTrace: s);
