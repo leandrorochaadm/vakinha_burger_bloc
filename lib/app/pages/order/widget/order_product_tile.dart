@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extension.dart';
 import 'package:vakinha_burger/app/core/ui/styles/colors_app.dart';
@@ -22,12 +23,20 @@ class OrderProductTile extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [
-          Image.network(
+          CachedNetworkImage(
+            imageUrl: product.imagePath,
+            placeholder: (context, url) => const CircularProgressIndicator(),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            height: 100,
+            width: 100,
+            fit: BoxFit.cover,
+          ),
+          /*Image.network(
             product.imagePath,
             width: 100,
             height: 100,
             fit: BoxFit.cover,
-          ),
+          ),*/
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),

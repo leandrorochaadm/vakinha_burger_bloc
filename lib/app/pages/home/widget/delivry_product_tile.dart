@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vakinha_burger/app/core/extensions/formatter_extension.dart';
@@ -71,13 +72,21 @@ class DeliveryProductTile extends StatelessWidget {
                 ],
               ),
             ),
-            FadeInImage.assetNetwork(
+            CachedNetworkImage(
+              imageUrl: product.imagePath,
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              height: 100,
+              width: 100,
+              fit: BoxFit.contain,
+            ),
+            /*FadeInImage.assetNetwork(
               placeholder: 'assets/images/loading.gif',
               image: product.imagePath,
               width: 100,
               height: 100,
               fit: BoxFit.contain,
-            ),
+            ),*/
           ],
         ),
       ),
