@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vakinha_burger/app/core/ui/helper/size_extesions.dart';
 
+import '../../core/ui/styles/styles.dart';
 import '../../core/ui/widgets/widgets.dart';
 
 class SplashPage extends StatelessWidget {
@@ -26,8 +27,19 @@ class SplashPage extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  SizedBox(height: context.percentHeight(.3)),
-                  Image.asset('assets/images/logo.png'),
+                  SizedBox(height: context.percentHeight(.28)),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Image.asset('assets/images/logo2.png'),
+                  ),
+                  Text(
+                    'Delivery Fast',
+                    style: TextStyle(
+                      color: ColorsApp.i.primary,
+                      fontSize: 55,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 80),
                   DeliveryButton(
                     label: 'ACESSAR',
