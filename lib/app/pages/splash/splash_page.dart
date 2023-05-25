@@ -27,7 +27,7 @@ class SplashPage extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  SizedBox(height: context.percentHeight(.28)),
+                  SizedBox(height: context.percentHeight(.2)),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Image.asset('assets/images/logo2.png'),
