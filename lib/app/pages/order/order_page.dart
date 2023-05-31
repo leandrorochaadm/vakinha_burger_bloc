@@ -119,7 +119,8 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                     width: double.infinity,
                     height: 48,
                     label: 'FINALIZAR',
-                    onPressed: () {},
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/auth/login'),
                   ),
                 )
               ],
