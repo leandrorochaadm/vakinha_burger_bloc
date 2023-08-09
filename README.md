@@ -1,8 +1,17 @@
-# Vakinha Burger 
-### App Entrega de comida usando Flutter Bloc 
+# Fast Delivery 
+## App Entrega de lanche usando Flutter Bloc 
 
+### Demonstração visual da tela do app
+<img src="prints/00-00.png" alt="drawing" width="200"/>
+<img src="prints/00-01.png" alt="drawing" width="200"/>
+<img src="prints/00-02.png" alt="drawing" width="200"/>
+<img src="prints/00-03.png" alt="drawing" width="200"/>
+<img src="prints/00-04.png" alt="drawing" width="200"/>
+<img src="prints/00-05.png" alt="drawing" width="200"/>
+<img src="prints/00-06.png" alt="drawing" width="200"/>
+<img src="prints/00-07.png" alt="drawing" width="200"/>
 
-**Packages we are using:**
+**Packages que utilizei:**
 
 - flutter dotenv: [link](https://pub.dev/packages/flutter_dotenv)
 - dio: [link](https://pub.dev/packages/dio)
@@ -20,7 +29,18 @@
 - shared preferences: [link](https://pub.dev/packages/shared_preferences)
 - validatorless: [link](https://pub.dev/packages/validatorless)
 
-### Demonstração visual da tela do app
+## Requisitos
 
-![splash](prints/01.png)
-![products](prints/02.png)
+Para executar o aplicativo, os seguintes requisitos devem ser atendidos:
+
+- Flutter 3.10.5
+- Dart SDK version: '>=3.0.5 <4.0.0'
+- Android SDK (for Android development)
+
+## Começando
+
+Para começar a usar o aplicativo:
+
+1. Clone o repositório e navegue até o diretório do projeto.
+2. Instale os pacotes necessários usando `flutter pub get`.
+3. Execute o aplicativo `flutter run`
